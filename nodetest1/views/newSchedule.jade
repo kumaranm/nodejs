@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    a(href='/') Home
+    br
+    br
+    h1= title
+    form#formCalcSchedule(name="calcSchedule",method="post",action="/calcSchedule")
+        span.label Enter Borrowing Amount :
+        input#inputLoanAmount(type="number", placeholder="loan amount", name="loanAmount" min="0.01" max="1000000000000"  step = "any"  autofocus = "autofocus" required="required")
+        br
+        span.label Enter Annual Percentage Rate :
+        input#inputLoanInterest(type="number", placeholder="interest rate per annum", 
+        name="loanInterest" min="0.000001" max="100" required="required" step = "any")
+        br
+        span.label Enter Term (in years) :
+        input#inputLoanTerm(type="number", placeholder="loan term", name="loanTerm" min="1" max="1000000" required="required") 
+        br
+        br
+        button#btnSubmit(type="submit") Calculate

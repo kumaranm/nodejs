@@ -1,0 +1,38 @@
+extends layout
+
+block content
+    h1= title
+    a(href='/newSchedule') Back
+    h4
+     |Borrowed amount ($): 
+     = loaninput.amount
+     br
+     |Annual percentage rate (%): 
+     =loaninput.interest
+     br
+     |Loan tenure (years):   
+     =loaninput.term
+     
+    table
+     tr
+      th Payment Number
+      th Payment Amount ($)
+      th Payment Interest (%)
+      th CurrentBalance ($) 
+      th Total Payments ($)
+      th Total Interest Paid ($)
+      - each srow in schedulelst
+       tr
+        td 
+         =srow.paymentnumber
+        td 
+         =srow.paymentamount
+        td 
+         =srow.paymentinterest
+        td 
+         =srow.currentbalance
+        td 
+         =srow.totalpayments
+        td 
+         =srow.totalinterestpaid
+     
